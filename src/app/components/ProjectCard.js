@@ -64,6 +64,18 @@ export default function ProjectCard({
             <p className="text-neutral-600 dark:text-neutral-400 mt-2 leading-relaxed">
               {description}
             </p>
+            {technologies?.length > 0 && (
+              <div className="mt-4 flex flex-wrap gap-2">
+                {technologies.map((technology) => (
+                  <span
+                    key={technology}
+                    className="text-xs px-2.5 py-1 rounded-full border border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 bg-neutral-50 dark:bg-neutral-800"
+                  >
+                    {technology}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
           <div className="flex gap-2">
             {github && (
