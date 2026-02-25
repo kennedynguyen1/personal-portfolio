@@ -25,7 +25,7 @@ export default function Home() {
         "Selenium",
         "PostgreSQL",
       ],
-      github: "https://github.com/kennedynguyen1/",
+      github: "https://github.com/taedonreth/cycle",
       demo: "https://devpost.com/software/cycle-z6euoc",
     },
     {
