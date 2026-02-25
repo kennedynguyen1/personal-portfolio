@@ -8,10 +8,62 @@ import BenioffLogo from "@/app/components/icon/BOSL.png";
 import MemoryGlassLogo from "@/app/components/icon/MemoryGlass.png";
 import UCSantaBarbaraLogo from "@/app/components/icon/UCSantaBarbara.png";
 import UCSBCSLogo from "@/app/components/icon/UCSantaBarbaraCS.png";
+import PrevDropdownItem from "@/app/components/PrevDropdownItem";
 import Image from "next/image";
 import { GalleryHorizontalEnd } from "lucide-react";
+import { useState } from "react";
+
+const previousExperience = [
+  {
+    id: "eugo",
+    role: "Software Engineer Intern",
+    company: "Eugo",
+    companyHref: "https://eugo.io/",
+    logo: EugoLogo,
+    logoAlt: "Eugo Logo",
+    details: ["Platform Engineering"],
+  },
+  {
+    id: "benioff",
+    role: "Software Engineer Intern",
+    company: "Benioff Ocean Science Lab",
+    companyHref: "https://bosl.ucsb.edu/",
+    logo: BenioffLogo,
+    logoAlt: "Benioff Ocean Science Laboratory Logo",
+    details: [
+      "Educational Technology Development",
+      "Built a children's game to teach fundamentals of computer vision models",
+    ],
+  },
+  {
+    id: "memory-glass",
+    role: "Software Engineer (Contract Work)",
+    company: "Memory Glass",
+    companyHref: "https://www.memoryglass.com/",
+    logo: MemoryGlassLogo,
+    logoAlt: "Memory Glass Logo",
+    details: [
+      "Business Systems and Internal Tools",
+      "Built internal tools to automate ordering processes and streamline business operations",
+    ],
+  },
+  {
+    id: "ucsb-cs",
+    role: "Research",
+    company: "UCSB CS Department",
+    companyHref: "https://cs.ucsb.edu/people/faculty/jianwen-su",
+    logo: UCSBCSLogo,
+    logoAlt: "UCSB CS Department Logo",
+    details: [
+      "Professor Jianwen Su's CS events processing lab",
+      "Conducting research on event processing and data stream management systems, focusing on query models, real-time analytics, and the design tradeoffs of streaming databases",
+    ],
+  },
+];
 
 export default function About() {
+  const [openPreviousId, setOpenPreviousId] = useState(null);
+
   return (
     <div className="flex flex-col max-w-2xl mx-auto font-extralight">
       <ul className="grid gap-1 text-base">
@@ -71,92 +123,18 @@ export default function About() {
             previously:
           </span>
           <ul className="grid gap-1 pl-4">
-            <li className="relative flex items-start gap-4 group/item">
-              <span className="absolute left-[-20px] top-0 text-stone-500 dark:text-stone-500">
-                ↳
-              </span>
-              <span className="text-stone-600 dark:text-stone-400">
-                Software Engineer Intern
-                <span className="inline-flex items-baseline gap-1 ml-2">
-                  <Image
-                    src={EugoLogo}
-                    alt="Eugo Logo"
-                    width={14}
-                    height={14}
-                    className="object-contain relative top-[2px]"
-                  />
-                  <Link href="https://eugo.io/" className="font-medium">
-                    Eugo
-                  </Link>
-                </span>
-              </span>
-            </li>
-            <li className="relative flex items-start gap-4 group/item">
-              <span className="absolute left-[-20px] top-0 text-stone-500 dark:text-stone-500">
-                ↳
-              </span>
-              <span className="text-stone-600 dark:text-stone-400">
-                Software Engineer Intern
-                <span className="inline-flex items-baseline gap-1 ml-2">
-                  <Image
-                    src={BenioffLogo}
-                    alt="Benioff Ocean Science Laboratory Logo"
-                    width={14}
-                    height={14}
-                    className="object-contain relative top-[2px]"
-                  />
-                  <Link href="https://bosl.ucsb.edu/" className="font-medium">
-                    Benioff Ocean Science Laboratory
-                  </Link>
-                </span>
-              </span>
-            </li>
-            <li className="relative flex items-start gap-4 group/item">
-              <span className="absolute left-[-20px] top-0 text-stone-500 dark:text-stone-500">
-                ↳
-              </span>
-              <span className="text-stone-600 dark:text-stone-400">
-                Software Engineer (Contract Work)
-                <span className="inline-flex items-baseline gap-1 ml-2">
-                  <Image
-                    src={MemoryGlassLogo}
-                    alt="Memory Glass Logo"
-                    width={14}
-                    height={14}
-                    className="object-contain relative top-[2px]"
-                  />
-                  <Link
-                    href="https://www.memoryglass.com/"
-                    className="font-medium"
-                  >
-                    Memory Glass
-                  </Link>
-                </span>
-              </span>
-            </li>
-            <li className="relative flex items-start gap-4 group/item">
-              <span className="absolute left-[-20px] top-0 text-stone-500 dark:text-stone-500">
-                ↳
-              </span>
-              <span className="text-stone-600 dark:text-stone-400">
-                Research
-                <span className="inline-flex items-baseline gap-1 ml-2">
-                  <Image
-                    src={UCSBCSLogo}
-                    alt="UCSB CS Department Logo"
-                    width={14}
-                    height={14}
-                    className="object-contain relative top-[2px]"
-                  />
-                  <Link
-                    href="https://cs.ucsb.edu/people/faculty/jianwen-su"
-                    className="font-medium"
-                  >
-                    UCSB CS Department
-                  </Link>
-                </span>
-              </span>
-            </li>
+            {previousExperience.map((item) => (
+              <PrevDropdownItem
+                key={item.id}
+                item={item}
+                isOpen={openPreviousId === item.id}
+                onToggle={() =>
+                  setOpenPreviousId((current) =>
+                    current === item.id ? null : item.id
+                  )
+                }
+              />
+            ))}
           </ul>
         </li>
       </ul>
