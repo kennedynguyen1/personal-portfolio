@@ -5,7 +5,7 @@
     Personal Website
 </h1>
 <p align="center">
-    Built with <a href="https://nextjs.org" target="_blank">Next.js</a> and <a href="https://tailwindcss.com" target="_blank">Tailwind CSS</a>.
+    Built with <a href="https://nextjs.org" target="_blank">Next.js</a> and <a href="https://tailwindcss.com" target="_blank">Tailwind CSS</a>. Check it out at <a href="https://kennedynguyen.dev" target="_blank">kennedynguyen.dev</a>.
 </p>
 
 ## Getting Started
