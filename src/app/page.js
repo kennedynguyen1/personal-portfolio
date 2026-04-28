@@ -3,6 +3,7 @@
 import Link from "./components/Link";
 import Headshot from "@/app/assets/headshot.png";
 import NextLink from "next/link";
+import SnowflakeLogo from "@/app/components/icon/Snowflake.png";
 import EugoLogo from "@/app/components/icon/Eugo.png";
 import BenioffLogo from "@/app/components/icon/BOSL.png";
 import MemoryGlassLogo from "@/app/components/icon/MemoryGlass.png";
@@ -67,6 +68,24 @@ export default function About() {
   return (
     <div className="flex flex-col max-w-2xl mx-auto font-extralight">
       <ul className="grid gap-1 text-base">
+      <li className="group flex items-start gap-4 pl-4 relative hover:translate-x-1 transition-transform duration-200">
+          <div className="absolute left-0 top-[10px] w-[6px] h-[6px] bg-stone-800 dark:bg-stone-200 rotate-45 transform transition-all duration-300 group-hover:rotate-90 group-hover:scale-110" />
+          <span className="text-stone-600 dark:text-stone-400">
+            Incoming SWE Intern
+            <span className="inline-flex items-baseline gap-1 ml-2">
+              <Image
+                src={SnowflakeLogo}
+                alt="Snowflake Logo"
+                width={14}
+                height={14}
+                className="object-contain relative top-[2px]"
+              />
+              <Link href="https://www.snowflake.com/" className="font-medium">
+                Snowflake
+              </Link>
+            </span>
+          </span>
+        </li>
         <li className="group flex items-start gap-4 pl-4 relative hover:translate-x-1 transition-transform duration-200">
           <div className="absolute left-0 top-[10px] w-[6px] h-[6px] bg-stone-800 dark:bg-stone-200 rotate-45 transform transition-all duration-300 group-hover:rotate-90 group-hover:scale-110" />
           <span className="text-stone-600 dark:text-stone-400">
