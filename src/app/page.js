@@ -11,9 +11,10 @@ import MemoryGlassLogo from "@/app/components/icon/MemoryGlass.png";
 import UCSantaBarbaraLogo from "@/app/components/icon/UCSantaBarbara.png";
 import UCSBCSLogo from "@/app/components/icon/UCSantaBarbaraCS.png";
 import DropdownItem from "@/app/components/DropdownItem";
+import CurvedArrow from "@/app/components/CurvedArrow";
 import Image from "next/image";
 import { GalleryHorizontalEnd } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const currentRoles = [
   {
@@ -88,11 +89,29 @@ const previousExperience = [
 
 export default function About() {
   const [openIds, setOpenIds] = useState({});
-  const toggleOpen = (id) =>
+  const [showDropdownHint, setShowDropdownHint] = useState(false);
+
+  useEffect(() => {
+    setShowDropdownHint(!localStorage.getItem("hasOpenedDropdown"));
+  }, []);
+
+  const toggleOpen = (id) => {
+    localStorage.setItem("hasOpenedDropdown", "true");
+    setShowDropdownHint(false);
     setOpenIds((current) => ({ ...current, [id]: !current[id] }));
+  };
 
   return (
     <div className="flex flex-col max-w-2xl mx-auto font-extralight">
+      <div className="relative">
+        {showDropdownHint && (
+          <CurvedArrow
+            text="click me!"
+            direction="right"
+            className="hidden lg:block absolute top-4 -left-12"
+          />
+        )}
+      </div>
       <ul className="grid gap-1 text-base">
         {currentRoles.map((role) => (
           <DropdownItem

@@ -71,7 +71,7 @@ export default function Header({ className }) {
         </button>
         {!isMobileDevice && (
           <div className="relative">
-            {showArrow && <CurvedArrow className="hidden lg:block absolute -top-10 -right-28" />}
+            {showArrow && <CurvedArrow className="hidden lg:block absolute -top-12 -right-16" />}
             <button
               onClick={openCommandPalette}
               className="hidden sm:flex items-center gap-1 text-xs text-stone-500 dark:text-stone-400 bg-stone-50 dark:bg-stone-800 px-2 py-1 rounded-lg border border-stone-200 dark:border-stone-700 hover:bg-stone-100 dark:hover:bg-stone-700 hover:border-accent dark:hover:border-accent transition-colors duration-200"
