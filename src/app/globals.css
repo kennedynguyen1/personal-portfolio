@@ -14,39 +14,39 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: #f5f5f4;
+    background: #f6efdb;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #d6d3d1;
+    background: #d6cfb8;
     border-radius: 5px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #a8a29e;
+    background: #a89680;
   }
 
   /* Dark mode */
   .dark ::-webkit-scrollbar-track {
-    background: #292524;
+    background: #2a1d10;
   }
 
   .dark ::-webkit-scrollbar-thumb {
-    background: #44403c;
+    background: #55402f;
   }
 
   .dark ::-webkit-scrollbar-thumb:hover {
-    background: #57534e;
+    background: #6b5545;
   }
 
   /* Firefox */
   * {
     scrollbar-width: thin;
-    scrollbar-color: #d6d3d1 #f5f5f4;
+    scrollbar-color: #d6cfb8 #f6efdb;
   }
 
   .dark * {
-    scrollbar-color: #44403c #292524;
+    scrollbar-color: #55402f #2a1d10;
   }
 }
 

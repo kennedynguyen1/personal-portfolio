@@ -11,7 +11,7 @@ export default function HorizontalNav({ links }) {
           href={link.href}
           isActive={link.isActive}
           isNextLink={link.isNextLink}
-          className={`text-sm ${link.isActive ? "text-stone-900 dark:text-stone-100" : ""}`}
+          className={`text-sm ${link.isActive ? "text-secondary dark:text-secondary" : ""}`}
         >
           {link.name}
         </Link>

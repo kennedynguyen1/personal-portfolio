@@ -38,7 +38,7 @@ export default function Footer({ className }) {
             <a
               key={index}
               href={link.href}
-              className="group flex items-center hover:text-neutral-800 dark:hover:text-neutral-200"
+              className="group flex items-center hover:text-link dark:hover:text-link"
               target="_blank"
               rel="noopener noreferrer"
             >

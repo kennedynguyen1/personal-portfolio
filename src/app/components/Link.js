@@ -27,11 +27,11 @@ export default function Link({
       before:bottom-0
       before:h-[1px]
       before:w-full
-      before:bg-stone-800 dark:before:bg-stone-300
+      before:bg-link dark:before:bg-link
       before:opacity-0
       before:z-[2]
       hover:before:opacity-100
-      hover:text-stone-900 dark:hover:text-stone-100
+      hover:text-link dark:hover:text-link
       hover:before:[animation:sweep_2s_ease-in-out_infinite]
     `}
     ${className}

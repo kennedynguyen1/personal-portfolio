@@ -27,14 +27,10 @@ export default function ThemeProvider({ children }) {
   useEffect(() => {
     // Check if user has a theme preference in localStorage
     const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
+
     if (savedTheme) {
       setTheme(savedTheme);
       document.documentElement.classList.toggle('dark', savedTheme === 'dark');
-    } else if (prefersDark) {
-      setTheme('dark');
-      document.documentElement.classList.add('dark');
     }
   }, []);
 

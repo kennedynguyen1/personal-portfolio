@@ -57,7 +57,7 @@ export default function ProjectCard({
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-neutral-800 dark:text-neutral-200 font-medium text-2xl hover:text-neutral-600 dark:hover:text-neutral-400 transition-colors duration-200 block"
+              className="text-neutral-800 dark:text-neutral-200 font-medium text-2xl hover:text-link dark:hover:text-link transition-colors duration-200 block"
             >
               {title}
             </a>

@@ -8,6 +8,38 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
+      colors: {
+        // Warm cream/brown palette (solarized-inspired)
+        stone: {
+          50: "#fdf6e3",
+          100: "#f6efdb",
+          200: "#eee8d5",
+          300: "#d6cfb8",
+          400: "#a89680",
+          500: "#8a7361",
+          600: "#6b5545",
+          700: "#55402f",
+          800: "#3b2a1a",
+          900: "#2a1d10",
+          950: "#1f150a",
+        },
+        neutral: {
+          50: "#fdf6e3",
+          100: "#f6efdb",
+          200: "#eee8d5",
+          300: "#d6cfb8",
+          400: "#a89680",
+          500: "#8a7361",
+          600: "#6b5545",
+          700: "#55402f",
+          800: "#3b2a1a",
+          900: "#2a1d10",
+          950: "#1f150a",
+        },
+        accent: "#d16d3e",
+        secondary: "#77934d",
+        link: "#268bd2",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

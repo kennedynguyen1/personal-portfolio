@@ -69,7 +69,7 @@ export default function About() {
     <div className="flex flex-col max-w-2xl mx-auto font-extralight">
       <ul className="grid gap-1 text-base">
       <li className="group flex items-start gap-4 pl-4 relative hover:translate-x-1 transition-transform duration-200">
-          <div className="absolute left-0 top-[10px] w-[6px] h-[6px] bg-stone-800 dark:bg-stone-200 rotate-45 transform transition-all duration-300 group-hover:rotate-90 group-hover:scale-110" />
+          <div className="absolute left-0 top-[10px] w-[6px] h-[6px] bg-secondary rotate-45 transform transition-all duration-300 group-hover:rotate-90 group-hover:scale-110" />
           <span className="text-stone-600 dark:text-stone-400">
             SWE Intern
             <span className="inline-flex items-baseline gap-1 ml-2">
@@ -87,7 +87,7 @@ export default function About() {
           </span>
         </li>
         <li className="group flex items-start gap-4 pl-4 relative hover:translate-x-1 transition-transform duration-200">
-          <div className="absolute left-0 top-[10px] w-[6px] h-[6px] bg-stone-800 dark:bg-stone-200 rotate-45 transform transition-all duration-300 group-hover:rotate-90 group-hover:scale-110" />
+          <div className="absolute left-0 top-[10px] w-[6px] h-[6px] bg-secondary rotate-45 transform transition-all duration-300 group-hover:rotate-90 group-hover:scale-110" />
           <span className="text-stone-600 dark:text-stone-400">
             Rising 4th year CS
             <span className="inline-flex items-baseline gap-1 ml-2">
@@ -105,13 +105,13 @@ export default function About() {
           </span>
         </li>
         <li className="group flex flex-col gap-3 pl-4 relative hover:translate-x-1 transition-transform duration-200">
-          <div className="absolute left-0 top-[10px] w-[6px] h-[6px] bg-stone-800 dark:bg-stone-200 rotate-45 transform transition-all duration-300 group-hover:rotate-90 group-hover:scale-110" />
+          <div className="absolute left-0 top-[10px] w-[6px] h-[6px] bg-secondary rotate-45 transform transition-all duration-300 group-hover:rotate-90 group-hover:scale-110" />
           <span className="text-stone-600 dark:text-stone-400 italic font-medium">
             what i&apos;ve been building:
           </span>
           <ul className="grid gap-1 pl-4">
             <li className="relative flex items-start gap-4 group/item">
-              <span className="absolute left-[-20px] top-0 text-stone-500 dark:text-stone-500">
+              <span className="absolute left-[-20px] top-0 text-secondary">
                 ↳
               </span>
               <span className="text-stone-600 dark:text-stone-400">
@@ -123,7 +123,7 @@ export default function About() {
               </span>
             </li>
             <li className="relative flex items-start gap-4 group/item">
-              <span className="absolute left-[-20px] top-0 text-stone-500 dark:text-stone-500">
+              <span className="absolute left-[-20px] top-0 text-secondary">
                 ↳
               </span>
               <span className="text-stone-600 dark:text-stone-400">
@@ -137,7 +137,7 @@ export default function About() {
           </ul>
         </li>
         <li className="group flex flex-col gap-3 pl-4 relative hover:translate-x-1 transition-transform duration-200">
-          <div className="absolute left-0 top-[10px] w-[6px] h-[6px] bg-stone-800 dark:bg-stone-200 rotate-45 transform transition-all duration-300 group-hover:rotate-90 group-hover:scale-110" />
+          <div className="absolute left-0 top-[10px] w-[6px] h-[6px] bg-secondary rotate-45 transform transition-all duration-300 group-hover:rotate-90 group-hover:scale-110" />
           <span className="text-stone-600 dark:text-stone-400 italic font-medium">
             previously:
           </span>
@@ -160,7 +160,7 @@ export default function About() {
 
       <NextLink
         href="/projects"
-        className="text-center mt-4 py-4 px-6 rounded-lg border border-stone-400 dark:border-stone-600 bg-stone-50 dark:bg-stone-900 text-stone-600 dark:text-stone-400 transform transition-all duration-300 font-extralight hover:scale-[1.02] active:scale-[0.98] shadow-sm"
+        className="text-center mt-4 py-4 px-6 rounded-lg border border-stone-400 dark:border-stone-600 hover:border-accent dark:hover:border-accent bg-stone-50 dark:bg-stone-900 text-stone-600 dark:text-stone-400 transform transition-all duration-300 font-extralight hover:scale-[1.02] active:scale-[0.98] shadow-sm"
       >
         see what i&apos;ve built{" "}
         <GalleryHorizontalEnd className="size-5 inline align-top ml-1 transition-transform group-hover:rotate-3" />
