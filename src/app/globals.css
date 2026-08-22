@@ -50,6 +50,16 @@
   }
 }
 
+/* Disable text selection site-wide; clicks and links still work */
+:root {
+  user-select: none;
+}
+
+::selection {
+  background: transparent;
+  color: inherit;
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;
