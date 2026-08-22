@@ -55,6 +55,15 @@
   user-select: none;
 }
 
+/* Overscroll shows html's background, not main's — keep them matching */
+html {
+  background-color: theme(colors.stone.100);
+}
+
+html.dark {
+  background-color: theme(colors.stone.950);
+}
+
 ::selection {
   background: transparent;
   color: inherit;
