@@ -4,14 +4,23 @@ import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import Link from "./Link";
 
-export default function PrevDropdownItem({ item, isOpen, onToggle }) {
-  const panelId = `previous-panel-${item.id}`;
+export default function DropdownItem({ item, isOpen, onToggle, variant = "nested" }) {
+  const panelId = `dropdown-panel-${item.id}`;
+  const isTop = variant === "top";
 
   return (
-    <li className="group/row relative">
-      <span className="absolute left-[-20px] top-0 text-stone-500 dark:text-stone-500">
-        ↳
-      </span>
+    <li
+      className={
+        isTop
+          ? "group/row group relative pl-4 hover:translate-x-1 transition-transform duration-200"
+          : "group/row relative"
+      }
+    >
+      {isTop ? (
+        <div className="absolute left-0 top-[10px] w-[6px] h-[6px] bg-secondary rotate-45 transform transition-all duration-300 group-hover:rotate-90 group-hover:scale-110" />
+      ) : (
+        <span className="absolute left-[-20px] top-0 text-secondary">↳</span>
+      )}
       <div className="w-full flex items-start justify-between gap-3">
         <div className="min-w-0 flex items-baseline gap-1 flex-wrap text-stone-600 dark:text-stone-400">
           <button
@@ -64,16 +73,37 @@ export default function PrevDropdownItem({ item, isOpen, onToggle }) {
         }`}
       >
         <div className="overflow-hidden">
-          <ul className="ml-1 pl-4 border-l border-stone-300 dark:border-stone-700 space-y-1">
+          <div className="relative flex flex-col gap-1 pl-5 pb-1">
+            {/* timeline marker: olive circle with a line dropping down, like Sean's experience section */}
+            <span
+              aria-hidden
+              className="absolute left-0 top-[7px] w-[7px] h-[7px] rounded-full border border-secondary"
+            />
+            <span
+              aria-hidden
+              className="absolute left-[3px] top-[18px] bottom-[4px] w-px bg-stone-300 dark:bg-stone-700"
+            />
             {item.details.map((detail, index) => (
-              <li
+              <p
                 key={`${item.id}-${index}`}
-                className="text-sm text-stone-500 dark:text-stone-500 leading-relaxed"
+                className="text-sm text-stone-500 dark:text-stone-500 leading-relaxed m-0"
               >
-                {index === 0 ? detail : `• ${detail}`}
-              </li>
+                {detail}
+              </p>
             ))}
-          </ul>
+            {item.technologies?.length > 0 && (
+              <div className="flex flex-wrap gap-1.5 mt-0.5">
+                {item.technologies.map((tech) => (
+                  <span
+                    key={tech}
+                    className="text-xs px-1.5 py-0.5 rounded bg-stone-200 dark:bg-stone-800 text-stone-600 dark:text-stone-400 border border-transparent hover:border-accent transition-colors duration-200"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </li>

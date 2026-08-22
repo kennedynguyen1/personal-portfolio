@@ -4,15 +4,38 @@ import Link from "./components/Link";
 import Headshot from "@/app/assets/headshot.png";
 import NextLink from "next/link";
 import SnowflakeLogo from "@/app/components/icon/Snowflake.png";
+import ShopifyLogo from "@/app/components/icon/Shopify.png";
 import EugoLogo from "@/app/components/icon/Eugo.png";
 import BenioffLogo from "@/app/components/icon/BOSL.png";
 import MemoryGlassLogo from "@/app/components/icon/MemoryGlass.png";
 import UCSantaBarbaraLogo from "@/app/components/icon/UCSantaBarbara.png";
 import UCSBCSLogo from "@/app/components/icon/UCSantaBarbaraCS.png";
-import PrevDropdownItem from "@/app/components/PrevDropdownItem";
+import DropdownItem from "@/app/components/DropdownItem";
 import Image from "next/image";
 import { GalleryHorizontalEnd } from "lucide-react";
 import { useState } from "react";
+
+const currentRoles = [
+  {
+    id: "snowflake",
+    role: "SWE Intern",
+    company: "Snowflake",
+    companyHref: "https://www.snowflake.com/",
+    logo: SnowflakeLogo,
+    logoAlt: "Snowflake Logo",
+    details: ["Metadata Interoperability (Delta Lake)"],
+    technologies: ["Java", "C++", "AWS"],
+  },
+  {
+    id: "shopify",
+    role: "Fall SWE Intern",
+    company: "Shopify",
+    companyHref: "https://shopify.com/",
+    logo: ShopifyLogo,
+    logoAlt: "Shopify Logo",
+    details: ["Developer Productivity (Environments)"],
+  },
+];
 
 const previousExperience = [
   {
@@ -23,6 +46,7 @@ const previousExperience = [
     logo: EugoLogo,
     logoAlt: "Eugo Logo",
     details: ["Platform Engineering"],
+    technologies: ["Python", "TypeScript", "React"],
   },
   {
     id: "benioff",
@@ -32,25 +56,25 @@ const previousExperience = [
     logo: BenioffLogo,
     logoAlt: "Benioff Ocean Science Laboratory Logo",
     details: [
-      "Educational Technology Development",
-      "Built a children's game to teach fundamentals of computer vision models",
+      "Built a children's game to teach computer vision fundamentals",
     ],
+    technologies: ["TypeScript", "React"],
   },
   {
     id: "memory-glass",
-    role: "Software Engineer (Contract Work)",
+    role: "Software Engineer (CW)",
     company: "Memory Glass",
     companyHref: "https://www.memoryglass.com/",
     logo: MemoryGlassLogo,
     logoAlt: "Memory Glass Logo",
     details: [
-      "Business Systems and Internal Tools",
-      "Built internal tools to automate ordering processes and streamline business operations",
+      "Built business systems and internal tools",
     ],
+    technologies: ["JavaScript", "SQL"],
   },
   {
     id: "ucsb-cs",
-    role: "Research",
+    role: "Database Research",
     company: "UCSB CS Department",
     companyHref: "https://cs.ucsb.edu/people/faculty/jianwen-su",
     logo: UCSBCSLogo,
@@ -68,28 +92,23 @@ export default function About() {
   return (
     <div className="flex flex-col max-w-2xl mx-auto font-extralight">
       <ul className="grid gap-1 text-base">
-      <li className="group flex items-start gap-4 pl-4 relative hover:translate-x-1 transition-transform duration-200">
-          <div className="absolute left-0 top-[10px] w-[6px] h-[6px] bg-secondary rotate-45 transform transition-all duration-300 group-hover:rotate-90 group-hover:scale-110" />
-          <span className="text-stone-600 dark:text-stone-400">
-            SWE Intern
-            <span className="inline-flex items-baseline gap-1 ml-2">
-              <Image
-                src={SnowflakeLogo}
-                alt="Snowflake Logo"
-                width={14}
-                height={14}
-                className="object-contain relative top-[2px]"
-              />
-              <Link href="https://www.snowflake.com/" className="font-medium">
-                Snowflake
-              </Link>
-            </span>
-          </span>
-        </li>
+        {currentRoles.map((role) => (
+          <DropdownItem
+            key={role.id}
+            variant="top"
+            item={role}
+            isOpen={openPreviousId === role.id}
+            onToggle={() =>
+              setOpenPreviousId((current) =>
+                current === role.id ? null : role.id
+              )
+            }
+          />
+        ))}
         <li className="group flex items-start gap-4 pl-4 relative hover:translate-x-1 transition-transform duration-200">
           <div className="absolute left-0 top-[10px] w-[6px] h-[6px] bg-secondary rotate-45 transform transition-all duration-300 group-hover:rotate-90 group-hover:scale-110" />
           <span className="text-stone-600 dark:text-stone-400">
-            Rising 4th year CS
+            CS
             <span className="inline-flex items-baseline gap-1 ml-2">
               <Image
                 src={UCSantaBarbaraLogo}
@@ -102,6 +121,7 @@ export default function About() {
                 UC Santa Barbara
               </Link>
             </span>
+            <span className="inline-flex items-baseline gap-1 ml-2">&apos;27</span>
           </span>
         </li>
         <li className="group flex flex-col gap-3 pl-4 relative hover:translate-x-1 transition-transform duration-200">
@@ -143,7 +163,7 @@ export default function About() {
           </span>
           <ul className="grid gap-1 pl-4">
             {previousExperience.map((item) => (
-              <PrevDropdownItem
+              <DropdownItem
                 key={item.id}
                 item={item}
                 isOpen={openPreviousId === item.id}
