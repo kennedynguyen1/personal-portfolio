@@ -34,6 +34,41 @@ export default function CurvedArrow({ className, text = "psst... try this!", dir
     );
   }
 
+  if (direction === "doodle-flat") {
+    // Low-profile scribble: runs horizontally with one loop mid-run,
+    // tip lands on the left, text trails to the right.
+    return (
+      <div className={`pointer-events-none flex items-center gap-1 opacity-0 animate-[fadeIn_0.5s_ease-in_forwards] ${className}`}>
+        <svg
+          width="100"
+          height="32"
+          viewBox="0 0 100 32"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M 92 18 C 82 24, 74 24, 66 20 C 56 15, 60 5, 70 8 C 78 10, 74 20, 62 19 C 40 28, 10 32, 6 10"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            className="text-stone-400"
+          />
+          <path
+            d="M 0 16 L 6 9 L 12 16"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="text-stone-400"
+          />
+        </svg>
+        <p className="text-sm text-stone-600 dark:text-stone-400 font-medium whitespace-nowrap">
+          {text}
+        </p>
+      </div>
+    );
+  }
+
   if (direction === "doodle") {
     // Scribbly loop-de-loop: starts under the text, loops once mid-air, and
     // the tip lands down-left on whatever it's placed beside.

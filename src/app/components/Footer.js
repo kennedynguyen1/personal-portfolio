@@ -1,6 +1,21 @@
+"use client";
+
 import { Twitter, Linkedin, Github, Mail, CodeXml } from "lucide-react";
+import { useEffect, useState } from "react";
+import CurvedArrow from "./CurvedArrow";
 
 export default function Footer({ className }) {
+  const [showFooterHint, setShowFooterHint] = useState(false);
+
+  useEffect(() => {
+    setShowFooterHint(!localStorage.getItem("hasClickedFooterLink"));
+  }, []);
+
+  const dismissFooterHint = () => {
+    localStorage.setItem("hasClickedFooterLink", "true");
+    setShowFooterHint(false);
+  };
+
   const links = [
     {
       name: "x",
@@ -32,12 +47,20 @@ export default function Footer({ className }) {
   return (
     <footer className={`flex flex-col gap-4 text-sm text-stone-500 dark:text-stone-400 ${className}`}>
       <hr className="border-b border-neutral-200 dark:border-neutral-800" />
-      <div className="flex flex-row gap-4">
+      <div className="relative flex flex-row gap-4">
+        {showFooterHint && (
+          <CurvedArrow
+            text="get in touch!"
+            direction="doodle-flat"
+            className="hidden lg:flex absolute top-3.5 left-28"
+          />
+        )}
         <div className="flex flex-wrap gap-4">
           {links.map((link, index) => (
             <a
               key={index}
               href={link.href}
+              onClick={dismissFooterHint}
               className="group flex items-center hover:text-link dark:hover:text-link"
               target="_blank"
               rel="noopener noreferrer"
