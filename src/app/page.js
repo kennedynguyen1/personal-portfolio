@@ -2,6 +2,10 @@
 
 import Link from "./components/Link";
 import Headshot from "@/app/assets/headshot.png";
+import Hawaii from "@/app/assets/hawaii.png";
+import LakeDiablo from "@/app/assets/lake_diablo.png";
+import Basketball from "@/app/assets/basketball.png";
+import Food from "@/app/assets/food.png";
 import NextLink from "next/link";
 import SnowflakeLogo from "@/app/components/icon/Snowflake.png";
 import ShopifyLogo from "@/app/components/icon/Shopify.png";
@@ -15,6 +19,19 @@ import CurvedArrow from "@/app/components/CurvedArrow";
 import Image from "next/image";
 import { GalleryHorizontalEnd } from "lucide-react";
 import { useEffect, useState } from "react";
+
+const personas = [
+  { caption: "Hey, I'm Kennedy. I'm a Software Engineer 👨🏻‍💻, but also love ...", img: Headshot },
+  { caption: "travelling ✈️", img: Hawaii },
+  { caption: "the outdoors ⛰️", img: LakeDiablo },
+  { caption: "basketball (warriors fan) 🏀", img: Basketball },
+  {
+    caption: "food 🍜!!, and the list can go on and on ...",
+    subcaption:
+      "I'm a serial hobbyist. Reach out to chat about tech, hobbies, or your latest obession :)",
+    img: Food,
+  },
+];
 
 const currentRoles = [
   {
@@ -90,10 +107,19 @@ const previousExperience = [
 export default function About() {
   const [openIds, setOpenIds] = useState({});
   const [showDropdownHint, setShowDropdownHint] = useState(false);
+  const [personaIndex, setPersonaIndex] = useState(0);
+  const [showHeadshotHint, setShowHeadshotHint] = useState(false);
 
   useEffect(() => {
     setShowDropdownHint(!localStorage.getItem("hasOpenedDropdown"));
+    setShowHeadshotHint(!localStorage.getItem("hasClickedHeadshot"));
   }, []);
+
+  const cyclePersona = () => {
+    localStorage.setItem("hasClickedHeadshot", "true");
+    setShowHeadshotHint(false);
+    setPersonaIndex((i) => (i + 1) % personas.length);
+  };
 
   const toggleOpen = (id) => {
     localStorage.setItem("hasOpenedDropdown", "true");
@@ -213,15 +239,49 @@ export default function About() {
         </Link>
       </div> */}
 
-      <div className="flex justify-center mt-6">
-        <div className="w-48 h-48 shrink-0 relative rounded-full border-2 border-stone-200 dark:border-stone-700 shadow-lg overflow-hidden bg-stone-50 dark:bg-stone-800">
-          <Image
-            src={Headshot}
-            alt="Kennedy Nguyen Headshot"
-            fill
-            className="object-cover object-top rounded-full"
-          />
+      <div className="flex flex-col items-center mt-6 gap-3">
+        <div className="relative">
+          {showHeadshotHint && (
+            <CurvedArrow
+              text="psst... get a glimpse of my life!"
+              direction="doodle"
+              className="hidden lg:flex absolute top-4 left-full -ml-1 whitespace-nowrap"
+            />
+          )}
+          <button
+            type="button"
+            aria-label="Click to cycle through my interests"
+            onClick={cyclePersona}
+            className="w-48 h-48 shrink-0 relative rounded-full border-2 border-stone-200 dark:border-stone-700 shadow-lg overflow-hidden bg-stone-50 dark:bg-stone-800 cursor-pointer transition-transform duration-300 hover:scale-[1.02] active:scale-[0.98] block"
+          >
+            {personas.map((persona, i) => (
+              <div
+                key={persona.caption}
+                className={`absolute inset-0 transition-opacity duration-500 ${
+                  i === personaIndex ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                <Image
+                  src={persona.img}
+                  alt={`Kennedy Nguyen — ${persona.caption}`}
+                  fill
+                  className="object-cover object-top"
+                />
+              </div>
+            ))}
+          </button>
         </div>
+        <span
+          key={personaIndex}
+          className="text-sm text-stone-600 dark:text-stone-400 animate-fade-in text-center"
+        >
+          {personas[personaIndex].caption}
+          {personas[personaIndex].subcaption && (
+            <span className="block mt-1 max-w-xs">
+              {personas[personaIndex].subcaption}
+            </span>
+          )}
+        </span>
       </div>
     </div>
   );

@@ -34,6 +34,41 @@ export default function CurvedArrow({ className, text = "psst... try this!", dir
     );
   }
 
+  if (direction === "doodle") {
+    // Scribbly loop-de-loop: starts under the text, loops once mid-air, and
+    // the tip lands down-left on whatever it's placed beside.
+    return (
+      <div className={`pointer-events-none flex items-start gap-1 opacity-0 animate-[fadeIn_0.5s_ease-in_forwards] ${className}`}>
+        <svg
+          width="56"
+          height="64"
+          viewBox="0 0 56 64"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M48 8 C 58 20, 46 30, 36 26 C 26 22, 32 10, 42 14 C 52 18, 46 38, 30 46 C 24 49, 16 52, 8 52"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            className="text-stone-400"
+          />
+          <path
+            d="M16 46 L 8 52 L 17 57"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="text-stone-400"
+          />
+        </svg>
+        <p className="text-sm text-stone-600 dark:text-stone-400 font-medium whitespace-nowrap -mt-1">
+          {text}
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className={`flex items-end opacity-0 animate-[fadeIn_0.5s_ease-in_forwards] ${className}`}>
       <div className="relative">
