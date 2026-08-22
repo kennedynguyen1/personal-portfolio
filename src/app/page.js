@@ -45,7 +45,7 @@ const previousExperience = [
     companyHref: "https://eugo.io/",
     logo: EugoLogo,
     logoAlt: "Eugo Logo",
-    details: ["Platform Engineering"],
+    details: ["Product Development"],
     technologies: ["Python", "TypeScript", "React"],
   },
   {
@@ -87,7 +87,9 @@ const previousExperience = [
 ];
 
 export default function About() {
-  const [openPreviousId, setOpenPreviousId] = useState(null);
+  const [openIds, setOpenIds] = useState({});
+  const toggleOpen = (id) =>
+    setOpenIds((current) => ({ ...current, [id]: !current[id] }));
 
   return (
     <div className="flex flex-col max-w-2xl mx-auto font-extralight">
@@ -97,12 +99,8 @@ export default function About() {
             key={role.id}
             variant="top"
             item={role}
-            isOpen={openPreviousId === role.id}
-            onToggle={() =>
-              setOpenPreviousId((current) =>
-                current === role.id ? null : role.id
-              )
-            }
+            isOpen={!!openIds[role.id]}
+            onToggle={() => toggleOpen(role.id)}
           />
         ))}
         <li className="group flex items-start gap-4 pl-4 relative hover:translate-x-1 transition-transform duration-200">
@@ -124,10 +122,16 @@ export default function About() {
             <span className="inline-flex items-baseline gap-1 ml-2">&apos;27</span>
           </span>
         </li>
+        <li className="group flex items-start gap-4 pl-4 relative hover:translate-x-1 transition-transform duration-200">
+          <div className="absolute left-0 top-[10px] w-[6px] h-[6px] bg-secondary rotate-45 transform transition-all duration-300 group-hover:rotate-90 group-hover:scale-110" />
+          <span className="text-stone-600 dark:text-stone-400">
+            interested in distributed systems, databases, and applied ai/ml
+          </span>
+        </li>
         <li className="group flex flex-col gap-3 pl-4 relative hover:translate-x-1 transition-transform duration-200">
           <div className="absolute left-0 top-[10px] w-[6px] h-[6px] bg-secondary rotate-45 transform transition-all duration-300 group-hover:rotate-90 group-hover:scale-110" />
           <span className="text-stone-600 dark:text-stone-400 italic font-medium">
-            what i&apos;ve been building:
+            what i&apos;ve built:
           </span>
           <ul className="grid gap-1 pl-4">
             <li className="relative flex items-start gap-4 group/item">
@@ -166,12 +170,8 @@ export default function About() {
               <DropdownItem
                 key={item.id}
                 item={item}
-                isOpen={openPreviousId === item.id}
-                onToggle={() =>
-                  setOpenPreviousId((current) =>
-                    current === item.id ? null : item.id
-                  )
-                }
+                isOpen={!!openIds[item.id]}
+                onToggle={() => toggleOpen(item.id)}
               />
             ))}
           </ul>
@@ -194,15 +194,7 @@ export default function About() {
         </Link>
       </div> */}
 
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mt-6">
-        <div className="w-full rounded-lg border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-900 p-4 text-stone-600 dark:text-stone-400">
-          <p className="leading-relaxed">
-            Hi, I&apos;m Kennedy! I love to explore new technology and build products that people want.
-          </p>
-          <p className="leading-relaxed mt-3">
-            Outside of tech, you&apos;ll usually find me playing basketball, lifting, or spending time outdoors.
-          </p>
-        </div>
+      <div className="flex justify-center mt-6">
         <div className="w-48 h-48 shrink-0 relative rounded-full border-2 border-stone-200 dark:border-stone-700 shadow-lg overflow-hidden bg-stone-50 dark:bg-stone-800">
           <Image
             src={Headshot}

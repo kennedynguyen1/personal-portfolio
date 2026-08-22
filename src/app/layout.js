@@ -1,4 +1,10 @@
 import { GeistSans } from "geist/font/sans";
+import { Sora } from "next/font/google";
+
+const sora = Sora({
+  subsets: ["latin"],
+  variable: "--font-sora",
+});
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
@@ -16,7 +22,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={GeistSans.className}>
+      <body className={`${GeistSans.className} ${sora.variable}`}>
         <SpeedInsights />
         <Analytics />
         <ThemeProvider>

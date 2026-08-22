@@ -54,6 +54,9 @@ module.exports = {
       fontSize: {
         micro: "0.625rem",
       },
+      fontFamily: {
+        display: ["var(--font-sora)", "system-ui", "sans-serif"],
+      },
     },
   },
   plugins: [require("@tailwindcss/typography")],

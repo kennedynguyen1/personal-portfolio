@@ -57,7 +57,7 @@ export default function Header({ className }) {
 
   return (
     <div className="flex justify-between items-center">
-      <h1 className="text-neutral-700 dark:text-neutral-300 font-semibold">
+      <h1 className="font-display text-neutral-700 dark:text-neutral-300 font-semibold tracking-tight">
         <Link href="/" isNextLink={true}>Kennedy Nguyen</Link>
       </h1>
       <div className="flex items-center gap-6">
