@@ -28,7 +28,7 @@ const personas = [
   {
     caption: "food 🍜!!, and the list can go on and on ...",
     subcaption:
-      "I'm a serial hobbyist. Reach out to chat about tech, hobbies, or your latest obession :)",
+      "Reach out to chat about tech, hobbies, or your whatever you're into!",
     img: Food,
   },
 ];
