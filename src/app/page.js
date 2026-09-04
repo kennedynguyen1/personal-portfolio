@@ -243,7 +243,7 @@ export default function About() {
         <div className="relative">
           {showHeadshotHint && (
             <CurvedArrow
-              text="psst... get a glimpse of my life!"
+              text="get a glimpse of my life!"
               direction="doodle"
               className="hidden lg:flex absolute top-4 left-full -ml-1 whitespace-nowrap"
             />
