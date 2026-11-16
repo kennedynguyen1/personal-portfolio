@@ -35,8 +35,21 @@ const personas = [
 
 const currentRoles = [
   {
+    id: "shopify",
+    role: "Software Engineer Intern",
+    company: "Shopify",
+    companyHref: "https://shopify.com/",
+    logo: ShopifyLogo,
+    logoAlt: "Shopify Logo",
+    details: ["Build Systems & Developer Infra"],
+    technologies: ["Go", "Rust", "Ruby on Rails", "Nix"],
+  },
+];
+
+const previousExperience = [
+  {
     id: "snowflake",
-    role: "SWE Intern",
+    role: "Software Engineer Intern",
     company: "Snowflake",
     companyHref: "https://www.snowflake.com/",
     logo: SnowflakeLogo,
@@ -44,18 +57,6 @@ const currentRoles = [
     details: ["Metadata Interoperability (Delta Lake)"],
     technologies: ["Java", "C++", "AWS"],
   },
-  {
-    id: "shopify",
-    role: "Fall SWE Intern",
-    company: "Shopify",
-    companyHref: "https://shopify.com/",
-    logo: ShopifyLogo,
-    logoAlt: "Shopify Logo",
-    details: ["Developer Productivity (Environments)"],
-  },
-];
-
-const previousExperience = [
   {
     id: "eugo",
     role: "Software Engineer Intern",
